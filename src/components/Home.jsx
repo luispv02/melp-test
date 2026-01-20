@@ -4,6 +4,7 @@ import { RestaurantsList } from "./RestaurantsList";
 import { IoMdRestaurant } from "react-icons/io";
 import { SortRestaurant } from "./SortRestaurants";
 import { Loading } from "./Loading";
+import { RestaurantMap } from "./RestaurantMap";
 
 export const Home = () => {
 
@@ -37,7 +38,7 @@ export const Home = () => {
   }, [data, sortBy])
 
   return (
-    <div className='p-6 lg:py-10 lg:p-0'>
+    <div className='p-6 lg:pt-10 pb-22 lg:px-0'>
       <div className='text-center space-y-2 lg:space-y-6 h-96'>
         <div className="flex justify-center"><IoMdRestaurant size={100}/></div>
         <h1 className='text-xl lg:text-4xl'>Bienvenido a <span className='text-orange-600 font-bold'>Melp</span></h1>
@@ -45,14 +46,15 @@ export const Home = () => {
       </div>
 
       <div>
-        <h2 className="font-semibold">Busca y encuentra los mejores restaurante disponibles para ti.</h2>
+        <h2 className="font-semibold lg:text-xl">Busca y encuentra los mejores restaurantes disponibles para ti.</h2>
 
         { (isLoading || isSorting ) && <Loading /> }
         { !isLoading && !isSorting && sortedData.length === 0 && <p className="text-center py-10 text-sm">No se encontraron restaurantes</p> }
         { !isLoading && !isSorting && sortedData.length > 0 && 
-        <div>
+        <div className="space-y-10">
           <SortRestaurant sortBy={sortBy} onSortChange={handleSortChange} />
           <RestaurantsList restaurants={sortedData} />
+          <RestaurantMap restaurants={sortedData} />
         </div> 
         }
       </div>

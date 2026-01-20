@@ -2,7 +2,7 @@
 export const SortRestaurant = ({sortBy, onSortChange}) => {
 
   return (
-    <div className="flex justify-end py-6">
+    <div className="flex justify-end mt-4">
       <select value={sortBy} onChange={(e) => onSortChange(e.target.value)} className="border border-gray-400 p-2 rounded-lg text-gray-800 outline-none cursor-pointer">
         <option value="" disabled>Ordenar</option>
         <option value="name-asc">A-Z</option>

@@ -9,6 +9,7 @@ Página web para mostrar restaurantes con la posibilidad de ordenar alfabéticam
 - **TanStack Query** - Biblioteca para manejar el estado del servidor.
 - **React Icons** - Iconos para React
 - **react-share** - Botones para compartir en Redes sociales
+- **Mapbox GL** - Mostrar mapas con Markers.
 
 ## Instalación
 

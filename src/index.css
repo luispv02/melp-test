@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+.marker{
+  background-color: white;
+  border-radius: 20%;
+  padding: 5px;
+  display: flex;
+  font-weight: 600;
+  gap: 4px;
+  border: 1px solid gray;
+}
