@@ -66,7 +66,7 @@ export const RestaurantMap = ({restaurants}) => {
   return (
     <div>
       <div className='pb-6'>
-        <p className='font-semibold lg:text-xl'>Explora y encuentra en el mapa los mejores restaurantes.</p>
+        <h2 className='font-semibold lg:text-xl'>Explora y encuentra en el mapa los mejores restaurantes.</h2>
       </div>
 
       <div className='flex justify-center'>

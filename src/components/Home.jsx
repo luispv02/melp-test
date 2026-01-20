@@ -5,6 +5,7 @@ import { IoMdRestaurant } from "react-icons/io";
 import { SortRestaurant } from "./SortRestaurants";
 import { Loading } from "./Loading";
 import { RestaurantMap } from "./RestaurantMap";
+import { NearbyRestaurants } from "./NearbyRestaurants";
 
 export const Home = () => {
 
@@ -71,6 +72,10 @@ export const Home = () => {
 
           <div ref={mapRef}>
             <RestaurantMap restaurants={sortedData} />
+          </div>
+
+          <div>
+            <NearbyRestaurants restaurants={sortedData}/>
           </div>
         </div> 
         }
