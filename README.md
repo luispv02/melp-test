@@ -16,7 +16,7 @@ Página web para mostrar restaurantes con la posibilidad de ordenar alfabéticam
 1. **Clona el repositorio**
    ```bash
    git clone <url-del-repositorio>
-   cd melp-frontend
+   cd melp-test
    ```
 
 2. **Instala las dependencias**
@@ -28,3 +28,8 @@ Página web para mostrar restaurantes con la posibilidad de ordenar alfabéticam
    ```bash
    npm run dev
    ```
+
+## Datos
+Los datos utilizados fueron obtenidos desde un endpoint GET público, sin embargo el endpoint no permite solicitudes desde el navegador debido a restricciones de CORS.
+
+Por este motivo se optó por guardar los datos de la respuesta localmente en un archivo JSON.

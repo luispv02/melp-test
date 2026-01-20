@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useRestaurants } from "../hooks/useRestaurants"
 import { RestaurantsList } from "./RestaurantsList";
 import { IoMdRestaurant } from "react-icons/io";
@@ -11,6 +11,7 @@ export const Home = () => {
   const { data, isLoading } = useRestaurants();
   const [sortBy, setSortBy] = useState('');
   const [isSorting, setIsSorting] = useState(false);
+  const mapRef = useRef(null);
 
   const handleSortChange = (value) => {
     setIsSorting(true);
@@ -37,6 +38,13 @@ export const Home = () => {
     }
   }, [data, sortBy])
 
+  const handleViewMap = () => {
+    mapRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
   return (
     <div className='p-6 lg:pt-10 pb-22 lg:px-0'>
       <div className='text-center space-y-2 lg:space-y-6 h-96'>
@@ -49,12 +57,21 @@ export const Home = () => {
         <h2 className="font-semibold lg:text-xl">Busca y encuentra los mejores restaurantes disponibles para ti.</h2>
 
         { (isLoading || isSorting ) && <Loading /> }
-        { !isLoading && !isSorting && sortedData.length === 0 && <p className="text-center py-10 text-sm">No se encontraron restaurantes</p> }
+        { !isLoading && !isSorting && sortedData.length === 0 && <p className="text-center py-10 text-sm">No se encontraron restaurantes.</p> }
         { !isLoading && !isSorting && sortedData.length > 0 && 
         <div className="space-y-10">
-          <SortRestaurant sortBy={sortBy} onSortChange={handleSortChange} />
+          <div className="flex items-center justify-between mt-6">
+            <button className="border-gray-500 bg-black text-white p-2 px-4 rounded-lg cursor-pointer" onClick={handleViewMap}>
+              Ver mapa
+            </button>
+            <SortRestaurant sortBy={sortBy} onSortChange={handleSortChange} />
+          </div>
+
           <RestaurantsList restaurants={sortedData} />
-          <RestaurantMap restaurants={sortedData} />
+
+          <div ref={mapRef}>
+            <RestaurantMap restaurants={sortedData} />
+          </div>
         </div> 
         }
       </div>
