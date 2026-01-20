@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: "https://luispv02.github.io/melp-test"
+  base: "/melp-test/"
 })
